@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>Let's Rock</title>
     <link rel="stylesheet" href="index.css" >
-    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
   </head>
   <body>
   <div id="background-wrap">
@@ -15,8 +17,12 @@
 
     <div id="search-bar">
         <input class="search-query" type="text" placeholder="DESTINATION" >
-        <input class="search-submit" type="button" value="SUBMIT" >
+        <input class="search-submit" type="button" value="LET'S ROCK" disabled>
     </div>
   </div>
+
+  <script>
+    index.bindEvents()
+  </script>
   </body>
 </html>
