@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url('https://cdn.earthdata.nasa.gov/conduit/upload/5777/mini_magick20161018-2095-1059h7e') no-repeat top center;
+}
+
+#header {
+  background-color: #2070A3;
+  height: 4em;
+}
+
+#subheader {
+  background: rgba(50,50,50,0.6);
+  text-align: center;
+}
+
+#subheader h2 {
+  color: white;
+  margin: 0;
+  padding: .8em;
+}
+
+#search-bar {
+  margin: 10em auto 5em auto;
+  text-align: center;
+}
+
+#search-bar input {
+  display: inline-block;
+  font-size: .8em;
+}
+
+.search-query {
+  margin-right: -4px;
+  width: 25em;
+  border: 1px solid #ecf0f1;;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  height: 4em;
+  padding-left: 10px
+}
+
+.search-submit {
+  background-color: #20CE6F;
+  color: white;
+  border: 0;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  height: 4.3em;
+  padding: 1em;
+  cursor: pointer;
+  transition: background 0.15s ease-in-out
+}
+
+.search-submit:hover {
+  background-color: #1BAF5E;
+}
