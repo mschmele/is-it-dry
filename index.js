@@ -5,8 +5,10 @@ index = {
       zoom: 3
     }
   },
-
   autocomplete: null,
+  lat: null,
+  lon: null,
+  
   bindEvents: function () {
     $('.search-query').keyup(function(event) {
       if(event.target.value) {
@@ -46,6 +48,8 @@ index = {
     if (place.geometry) {
       map.panTo(place.geometry.location);
       map.setZoom(15);
+      index.lat = index.autocomplete.getPlace().geometry.location.lat();
+      index.lon = index.autocomplete.getPlace().geometry.location.long()
     } else {
       document.getElementsByClassName('search-query')[0].placeholder = 'DESTINATION';
     }
