@@ -86,3 +86,19 @@ body {
   background-color: #393939;
   color: white;
 }
+
+#custom-conditions {
+  display: none;
+  text-align: center;
+  width: 400px;
+  margin: 1.5em auto 0 auto;
+}
+
+.collapse {
+  width: 100px;
+  margin: 0 auto 1em;
+  cursor: pointer;
+  background-color: white;
+  padding: 5px 0;
+  border-radius: 5px;
+}

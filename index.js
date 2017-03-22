@@ -27,6 +27,10 @@ index = {
     $('input[type=radio][name=activity]').on('change', function (event) { 
       index.activitySelected(event);
     });
+
+    $('#custom-conditions .collapse').on('click', function (event) {
+      $('#custom-conditions').slideUp();
+    });
   },
 
   initMap: function () {
@@ -61,6 +65,12 @@ index = {
   },
 
   activitySelected: function (event) {
+    index.activity = event.target.id;
 
+    if (event.target.id == "other") {
+      $('#custom-conditions').slideDown();
+    } else {
+      $('#custom-conditions').slideUp();
+    }
   }
 }

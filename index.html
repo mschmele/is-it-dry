@@ -16,17 +16,36 @@
   </div>
 
   <div id="condition-selector">
-      <input type="radio" id="climb" name="activity" accesskey="C" checked="true" />
+      <input type="radio" id="climb" name="activity" checked="true" />
       <label class="activity-selector left-end" for="climb">climbing</label>
 
-      <input type="radio" id="ski" name="activity" accesskey="S" />
+      <input type="radio" id="ski" name="activity" />
       <label class="activity-selector" for="ski">skiing</label>
 
-      <input type="radio" id="hike" name="activity" accesskey="H" />
+      <input type="radio" id="hike" name="activity" />
       <label class="activity-selector" for="hike">hiking/backpacking</label>
 
-      <input type="radio" id="other" name="activity" accesskey="O" />
+      <input type="radio" id="other" name="activity" />
       <label class="activity-selector right-end" for="other">other</label>
+  </div>
+
+  <div id="custom-conditions">
+    <div class="collapse">[-] collapse</div>
+
+    <div>
+      <input type="checkbox" id="smap" />
+      <label class="custom-label" for="smap">Soil Moisture - SMAP</label>
+    </div>
+
+    <div> 
+      <input type="checkbox" id="cloud-cover" />
+      <label class="custom-label" for="cloud-cover">Cloud Cover</label>
+    </div>
+
+    <div>
+      <input type="checkbox" id="snow-pack" />
+      <label class="custom-label" for="snow-pack">Snow Measurements</label>
+    </div>
   </div>
 
   <div id="map"></div>
