@@ -24,7 +24,7 @@ index = {
       index.onPlaceChanged();
     });
 
-    $('input[type=radio][name=activity]').on('change', function (event) { 
+    $('.activity-selector').on('click', function (event) {
       index.activitySelected(event);
     });
 
@@ -65,9 +65,9 @@ index = {
   },
 
   activitySelected: function (event) {
-    index.activity = event.target.id;
+    index.activity = event.target.getAttribute('for');
 
-    if (event.target.id == "other") {
+    if (index.activity === "other") {
       $('#custom-conditions').slideDown();
     } else {
       $('#custom-conditions').slideUp();

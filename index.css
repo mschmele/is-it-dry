@@ -51,17 +51,18 @@ body {
 
 #condition-selector {
   text-align: center;
-  margin-top: 2em;
+  margin: 2em auto 0 auto;
+  width: 65%;
 }
 
 .activity-selector {
-  padding: 1em;
+  padding: 1em 0 1em 0;
   background-color: #1a5981;
   color: white;
   cursor: pointer;
   display: inline-block;
-  width: 12em;
-  margin-bottom: -.9em;
+  width: 25%;
+  margin: 0 -1.5px -13px -1.5px;
 }
 
 .activity-selector:hover {
@@ -79,7 +80,6 @@ body {
 #condition-selector input[type='radio'] {
   display: none;
   float: left;
-  width: 18px;
 }
 
 #condition-selector input[type='radio']:checked + label {
