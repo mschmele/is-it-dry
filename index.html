@@ -9,16 +9,24 @@
     <script src="index.js"></script>
   </head>
   <body>
-  <div id="background-wrap">
-    <div id="header"></div>
-    <div id="subheader">
-      <h2>Wonder if it's dry enough to climb outside today? You've come to the right place! Just search in that fancy little rectangle below.</h2>
-    </div>
 
-    <div id="search-bar">
-        <input class="search-query" type="text" placeholder="DESTINATION" >
-        <input class="search-submit" type="button" value="LET'S ROCK" disabled>
-    </div>
+  <div id="search-bar">
+      <input class="search-query" type="text" placeholder="DESTINATION" >
+      <input class="search-submit" type="button" value="LET'S ROCK" disabled>
+  </div>
+
+  <div id="condition-selector">
+      <input type="radio" id="climb" name="activity" accesskey="C" checked="true" />
+      <label class="activity-selector left-end" for="climb">climbing</label>
+
+      <input type="radio" id="ski" name="activity" accesskey="S" />
+      <label class="activity-selector" for="ski">skiing</label>
+
+      <input type="radio" id="hike" name="activity" accesskey="H" />
+      <label class="activity-selector" for="hike">hiking/backpacking</label>
+
+      <input type="radio" id="other" name="activity" accesskey="O" />
+      <label class="activity-selector right-end" for="other">other</label>
   </div>
 
   <div id="map"></div>

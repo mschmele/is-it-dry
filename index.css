@@ -4,31 +4,12 @@ body {
   background-color: #ECF0F1
 }
 
-#header {
-  background-color: #2070A3;
-  height: 4em;
-}
-
-#subheader {
-  background: rgba(50,50,50,0.6);
-  text-align: center;
-}
-
-#subheader h2 {
-  color: white;
-  margin: 0;
-  padding: .8em;
-}
-
-#background-wrap {
-  background: url('https://cdn.earthdata.nasa.gov/conduit/upload/5777/mini_magick20161018-2095-1059h7e') no-repeat top center;
-  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
-  padding-bottom: 1em;
-}
-
 #search-bar {
-  margin: 10em auto 5em auto;
+  margin: 0 auto;
+  padding: 1em;
   text-align: center;
+  background-color: #1E6A9B;
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 }
 
 #search-bar input {
@@ -66,4 +47,42 @@ body {
   height: 400px;
   width: 65%;
   margin: 15px auto;
+}
+
+#condition-selector {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.activity-selector {
+  padding: 1em;
+  background-color: #1a5981;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  width: 12em;
+  margin-bottom: -.9em;
+}
+
+.activity-selector:hover {
+  background-color: #1d6492;
+}
+
+.activity-selector.left-end {
+  border-top-left-radius: 5px;
+}
+
+.activity-selector.right-end {
+  border-top-right-radius: 5px;
+}
+
+#condition-selector input[type='radio'] {
+  display: none;
+  float: left;
+  width: 18px;
+}
+
+#condition-selector input[type='radio']:checked + label {
+  background-color: #393939;
+  color: white;
 }

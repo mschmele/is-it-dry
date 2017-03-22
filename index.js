@@ -8,6 +8,7 @@ index = {
   autocomplete: null,
   lat: null,
   lon: null,
+  activity: "climb",
   
   bindEvents: function () {
     $('.search-query').keyup(function(event) {
@@ -21,6 +22,10 @@ index = {
 
     $('.search-submit').on('click', function(event) {
       index.onPlaceChanged();
+    });
+
+    $('input[type=radio][name=activity]').on('change', function (event) { 
+      index.activitySelected(event);
     });
   },
 
@@ -53,5 +58,9 @@ index = {
     } else {
       document.getElementsByClassName('search-query')[0].placeholder = 'DESTINATION';
     }
+  },
+
+  activitySelected: function (event) {
+
   }
 }
