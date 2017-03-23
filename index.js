@@ -1,4 +1,6 @@
 index = {
+  currentDateLocale: new Date().toLocaleDateString().split('/').join('-'),
+  currentDateISO: new Date().toISOString().split("T")[0],
   countries: {
     'us': {
       center: {lat: 37.1, lng: -95.7},
@@ -9,6 +11,8 @@ index = {
   lat: null,
   lon: null,
   activity: "climb",
+  climbConditions: ["smap", "cloud-cover"],
+  skiConditions: ["snow-pack", "cloud-cover"],
   
   bindEvents: function () {
     $('.search-query').keyup(function(event) {
@@ -50,6 +54,10 @@ index = {
           componentRestrictions: {'country': 'us'}
         });
     places = new google.maps.places.PlacesService(map);
+
+    var imageMapType = new google.maps.ImageMapType(index.layerOptions());
+
+    map.overlayMapTypes.push(imageMapType);
   },
 
   onPlaceChanged: function () {
@@ -71,6 +79,26 @@ index = {
       $('#custom-conditions').slideDown();
     } else {
       $('#custom-conditions').slideUp();
+    }
+  },
+
+  getTileUrl: function(tile, zoom) {
+      return "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/" +
+               "AMSR2_Soil_Moisture_SCA_Day/default/" + index.currentDateISO +
+               "/GoogleMapsCompatible_Level6/" +
+                zoom + "/" + tile.y + "/" +
+                tile.x + ".png";
+  },
+
+  layerOptions: function () {
+    return {
+      alt: "AMSR2_Soil_Moisture_SCA_Day",
+      getTileUrl: index.getTileUrl,
+      maxZoom: 6,
+      minZoom: 1,
+      name: "AMSR2_Soil_Moisture_SCA_Day",
+      tileSize: new google.maps.Size(256, 256),
+      opacity: 0.5
     }
   }
 }
