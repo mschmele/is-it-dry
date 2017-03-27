@@ -87,11 +87,10 @@ index = {
   },
 
   getTileUrl: function(tile, zoom) {
-    var activityLayer;
-    (index.activity == "ski") ? activityLayer = index.skiConditions : activityLayer = index.climbConditions;
+    var activityLayer = (index.activity == "ski") ? index.skiConditions : index.climbConditions;
     
     return "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/" +
-              + activityLayer + "/default/" + index.currentDateISO +
+              activityLayer + "/default/" + index.currentDateISO +
               "/GoogleMapsCompatible_Level6/" +
               zoom + "/" + tile.y + "/" +
               tile.x + ".png";
