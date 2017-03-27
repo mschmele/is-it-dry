@@ -9,10 +9,10 @@ index = {
   },
   autocomplete: null,
   lat: null,
-  lon: null,
+  lng: null,
   activity: "climb",
-  climbConditions: ["smap", "cloud-cover"],
-  skiConditions: ["snow-pack", "cloud-cover"],
+  climbConditions: "AMSR2_Soil_Moisture_SCA_Day",
+  skiConditions: "AMSR2_Snow_Water_Equivalent",
   
   bindEvents: function () {
     $('.search-query').keyup(function(event) {
@@ -66,7 +66,7 @@ index = {
       map.panTo(place.geometry.location);
       map.setZoom(15);
       index.lat = index.autocomplete.getPlace().geometry.location.lat();
-      index.lon = index.autocomplete.getPlace().geometry.location.long()
+      index.lng = index.autocomplete.getPlace().geometry.location.lng()
     } else {
       document.getElementsByClassName('search-query')[0].placeholder = 'DESTINATION';
     }
@@ -80,23 +80,30 @@ index = {
     } else {
       $('#custom-conditions').slideUp();
     }
+
+    var imageMapType = new google.maps.ImageMapType(index.layerOptions());
+    map.overlayMapTypes.clear();
+    map.overlayMapTypes.push(imageMapType);
   },
 
   getTileUrl: function(tile, zoom) {
-      return "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/" +
-               "AMSR2_Soil_Moisture_SCA_Day/default/" + index.currentDateISO +
-               "/GoogleMapsCompatible_Level6/" +
-                zoom + "/" + tile.y + "/" +
-                tile.x + ".png";
+    var activityLayer;
+    (index.activity == "ski") ? activityLayer = index.skiConditions : activityLayer = index.climbConditions;
+    
+    return "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/" +
+              + activityLayer + "/default/" + index.currentDateISO +
+              "/GoogleMapsCompatible_Level6/" +
+              zoom + "/" + tile.y + "/" +
+              tile.x + ".png";
   },
 
   layerOptions: function () {
     return {
-      alt: "AMSR2_Soil_Moisture_SCA_Day",
+      alt: "Activity Layer",
       getTileUrl: index.getTileUrl,
-      maxZoom: 6,
+      maxZoom: 13,
       minZoom: 1,
-      name: "AMSR2_Soil_Moisture_SCA_Day",
+      name: "Activity Layer",
       tileSize: new google.maps.Size(256, 256),
       opacity: 0.5
     }
