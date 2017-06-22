@@ -11,9 +11,9 @@ index = {
   lat: null,
   lng: null,
   activity: "climb",
-  climbConditions: "AMSR2_Soil_Moisture_SCA_Day",
+  climbConditions: "AMSR2_Surface_Rain_Rate_Day",
   skiConditions: "AMSR2_Snow_Water_Equivalent",
-  
+
   bindEvents: function () {
     $('.search-query').keyup(function(event) {
       if(event.target.value) {
@@ -88,7 +88,7 @@ index = {
 
   getTileUrl: function(tile, zoom) {
     var activityLayer = (index.activity == "ski") ? index.skiConditions : index.climbConditions;
-    
+
     return "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/" +
               activityLayer + "/default/" + index.currentDateISO +
               "/GoogleMapsCompatible_Level6/" +
